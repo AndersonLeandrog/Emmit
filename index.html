@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculo valor do produto</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">    
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="box">
+            <div class="box-cliente">
+                <img src="img/user.png" alt="icone-editar">
+                <input type="text" name="nome" id="nome" placeholder="Nome">
+            </div>
+
+            <div class="box-cliente">
+                <img src="img/etiqueta.png" alt="icone-etiqueta">
+                <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-endereco">
+                <img src="img/locale.png" alt="icone-localizacao">
+                <input type="text" name="endereco" id="endereco" placeholder="Ex: Rua Joao Lucas, 1000">
+            </div>
+
+            <div class="box-endereco">
+                <img src="img/city.png" alt="icone-cidade">
+                <input type="text" name="cidade" id="cidade" placeholder="Ex: Sao Paulo-SP">
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-produto">
+                <img src="img/box.png" alt="icone-produto">
+            <input type="text" name="produto" id="produto" placeholder="Ex: Tela Motorola Moto G7 Power">
+            </div>
+
+            <div class="box-produto">
+                <img src="img/etiqueta.png" alt="icone-etiqueta">
+                <input type="text" name="valProduto" id="valProduto" placeholder="Valor do produto">
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-produto">
+                <img src="img/pen.png" alt="icone-lapis">
+                <input type="text" name="maoDeObra" id="maoDeObra" placeholder="Ex: Troca de tela...">
+            </div>
+
+            <div class="box-produto">
+                <img src="img/etiqueta.png" alt="icone-etiqueta">
+                <input type="text" name="valMaoDeObra" id="valMaoDeObra" placeholder="Valor da mao de obra">
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="img/frete.png" alt="icone-frete">
+            <input type="text" name="frete" id="frete" placeholder="frete">
+        </div>
+
+        <div class="controls">
+            <a href="table.html">
+                <button id="emitirNota">Emitir Nota</button>
+            </a>
+        </div>
+    </div>
+</body>
+
+<script>
+    $('#emitirNota').click(() => {
+        let nome = $('#nome').val()
+        let sobrenome = $('#sobrenome').val()
+
+        let endereco = $('#endereco').val()
+        let cidade = $('#cidade').val()
+
+        let produto = $('#produto').val()
+        let valProduto = $('#valProduto').val()
+
+        let maoDeObra = $('#maoDeObra').val()
+        let valMaoDeObra = $('#valMaoDeObra').val()
+
+        let frete = $('#frete').val()
+
+        valProduto = parseInt(valProduto)
+        valMaoDeObra = parseInt(valMaoDeObra)
+        frete = parseInt(frete)
+
+        let total = valProduto + valMaoDeObra + frete
+
+        document.cookie=`firstName = ${nome}`
+        document.cookie=`secondName = ${sobrenome}`
+
+        document.cookie=`adress = ${endereco}`
+        document.cookie=`city = ${cidade}`
+
+        document.cookie=`product = ${produto}`
+        document.cookie=`productValue = ${valProduto}`
+
+        document.cookie=`labor = ${maoDeObra}`
+        document.cookie=`laborValue = ${valMaoDeObra}`
+
+        document.cookie=`freight = ${frete}`
+
+        document.cookie=`total = ${total}`
+    })
+</script>
+</html>
